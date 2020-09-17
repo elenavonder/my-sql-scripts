@@ -1,3 +1,4 @@
+
 /*Create a list of Students where SAT less than 1000*/
 select * from Student
 where SAT < 1000;

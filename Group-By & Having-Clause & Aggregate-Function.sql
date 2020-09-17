@@ -1,3 +1,4 @@
+
 select City, state, sum (sales) as 'Total Sales'
 from Customers
 group by city, state
