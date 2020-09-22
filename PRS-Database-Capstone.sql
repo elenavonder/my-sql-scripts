@@ -23,9 +23,12 @@ IsAdmin bit NOT NULL DEFAULT 0,
 );
 
 INSERT Users (UserName, Password, FirstName, LastName, PhoneNumber, Email, IsReviewer, IsAdmin) VALUES
-('RGreen', 'Fashion90', 'Rachel', 'Green', '513-555-0123', 'RGreen@gmail.com', 0, 0),
-('MGeller', 'Chef19', 'Monica', 'Geller', '513-555-1234', 'MGeller@gmail.com', 0, 1),
-('CBing', 'Sarcasm31', 'Chandler', 'Bing', '513-555-3456', 'CBing@gmail.com', 1, 0);
+('RGreen', 'Fashion', 'Rachel', 'Green', '513-555-1111', 'RGreen@friends.com', 0, 0),
+('MGeller', 'Chef', 'Monica', 'Geller', '513-555-2222', 'MGeller@friends.com', 1, 1),
+('PBuffay', 'SmellyCat', 'Phoebe', 'Buffay', '513-555-3333', 'PBuffay@friends.com', 0, 0),
+('CBing', 'Sarcasm', 'Chandler', 'Bing', '513-555-4444', 'CBing@friends.com', 1, 0),
+('RGeller', 'Dino', 'Ross', 'Geller', '513-555-5555', 'RGeller@friends.com', 0, 0),
+('JTribbiani', 'Sandwich', 'Joey', 'Tribbiani', '513-555-6666', 'JTribbiani@friends.com', 0, 0);
 
 Create Table Vendors(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -40,8 +43,9 @@ Email varchar(100) NOT NULL,
 );
 
 INSERT Vendors (Code, Name, Address, City, State, Zip, PhoneNumber, Email) VALUES
-('AMAZ', 'Amazon', '6150 Glenway Ave.', 'Cincinnati', 'OH', '45211', '513-719-1076', 'User@Amazon.com'),
-('BBUY', 'Best Buy', '7400 Brookpark Rd.', 'Cleveland', 'OH', '44129', '216-351-9911', 'User@BBuy.com');
+('BARN', 'Pottery Barn', '7875 Montgomery Rd', 'Cincinnati', 'OH', '45236', '513-794-0705', 'User@potterybarn.com'),
+('CRBA', 'Crate & Barrel', '3965 Townsfair Way', 'Columbus', 'OH', '43219', '614-475-7428', 'User@cratebarrel.com'),
+('IKEA', 'IKEA', '1900 Ikea Way', 'Columbus', 'OH', '43240', '888-888-4532', 'user@ikea.com');
 
 Create Table Products(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -54,10 +58,14 @@ PhotoPath varchar(255) NULL --Graphic Image
 );
 
 INSERT Products (VendorsId, PartNumber, Name, Price) VALUES
-(1, '999', 'Echo', '199.99'),
-(1, '888', 'Apple Watch', '99.99'),
-(2, '777', 'Xbox One', '299.99'),
-(2, '666', 'Google Home', '199.99');
+(3, 'BOOK', 'Bookcase', '70,00'),
+(1, 'COUCH', 'Love Seat', '2000.00'),
+(3, 'FRIDGE', 'Refrigerator', '300.00'),
+(2, 'BEDDING', 'Pillow Top Queen Mattress', '200.00'),
+(1, 'TABLES', 'Apothecary Table', '60.00'),
+(2, 'TV', '50 in Television', '250.00'),
+(2, 'RECLINE', 'Recliner', '80.00'),
+(2, 'BABY', 'Changing Table', '55.00');
 
 Create Table Requests(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -73,11 +81,10 @@ ReasonForRejection varchar (100) NULL,
 );
 
 INSERT Requests (UsersId, Description, Justification, DeliveryMode) VALUES
-(1, '1st Request', 'For Work', 'UPS'),
-(2, '1st Request', 'For Home', 'UPS'),
-(3, '1st Request', 'For Work', 'Pick Up'),
-(1, '2nd Request', 'Just Because', 'Pick Up'),
-(3, '2nd Request', 'Just Because', 'UPS');
+(1, '', 'Saw In Catelog', 'UPS'),
+(2, '1st Request', 'Having Twins', 'UPS'),
+(5, '1st Request', 'Pivot', 'Pick Up'),
+(6, '2nd Request', 'Broken', 'Pick Up');
 
 Create Table LineItems(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -87,8 +94,7 @@ Quantity int NOT NULL DEFAULT 1,
 );
 
 INSERT LineItems (RequestsId, ProductsId) VALUES
-(1, 2),
-(2, 4),
-(3, 3),
-(4, 1),
-(5, 2);
+(1, 5),
+(2, 8),
+(3, 2),
+(4, 3);
