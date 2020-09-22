@@ -25,10 +25,7 @@ IsAdmin bit NOT NULL DEFAULT 0,
 INSERT Users (UserName, Password, FirstName, LastName, PhoneNumber, Email, IsReviewer, IsAdmin) VALUES
 ('RGreen', 'Fashion90', 'Rachel', 'Green', '513-555-0123', 'RGreen@gmail.com', 0, 0),
 ('MGeller', 'Chef19', 'Monica', 'Geller', '513-555-1234', 'MGeller@gmail.com', 0, 1),
-('CBing', 'Sarcasm31', 'Chandler', 'Bing', '513-555-3456', 'CBing@gmail.com', 1, 0),
-('JTribbiani', 'Food123', 'Joey', 'Tribbiani', '513-555-7307', 'JTrib@gmail.com', 0, 0),
-('PBuffay', 'SmellyCat', 'Phoebe', 'Buffay', '513-555-7831', 'PBuffay@gmail.com', 0, 0),
-('RGeller', 'DinoGuy', 'Ross', 'Geller', '513-555-3045', 'RGeller@gmail.com', 0, 0);
+('CBing', 'Sarcasm31', 'Chandler', 'Bing', '513-555-3456', 'CBing@gmail.com', 1, 0);
 
 Create Table Vendors(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -43,10 +40,8 @@ Email varchar(100) NOT NULL,
 );
 
 INSERT Vendors (Code, Name, Address, City, State, Zip, PhoneNumber, Email) VALUES
-('A', 'Target', '6150 Glenway Ave.', 'Cincinnati', 'OH', '45211', '513-719-1076', 'Target@gmail.com'),
-('B', 'Walmart', '3400 Steelyard Dr.', 'Cleveland', 'OH', '44130', '216-661-2406', 'Walmart@gmail.com'),
-('C', 'Meijer', '6550 Harrison Ave.', 'Cincinnati', 'OH', '45247', '513-598-2000', 'Meijer@gmail.com'),
-('D', 'Best Buy', '7400 Brookpark Rd.', 'Cleveland', 'OH', '44129', '216-351-9911', 'BBuy@gmail.com');
+('AMAZ', 'Amazon', '6150 Glenway Ave.', 'Cincinnati', 'OH', '45211', '513-719-1076', 'User@Amazon.com'),
+('BBUY', 'Best Buy', '7400 Brookpark Rd.', 'Cleveland', 'OH', '44129', '216-351-9911', 'User@BBuy.com');
 
 Create Table Products(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -59,12 +54,10 @@ PhotoPath varchar(255) NULL --Graphic Image
 );
 
 INSERT Products (VendorsId, PartNumber, Name, Price) VALUES
-(1, '010', 'IPhone Charger', '19.99'),
-(2, '012', 'Bluetooth Headphones', '24.99'),
-(2, '015', 'Nokia', '14.99'),
-(3, '017', 'USB Converter', '8.99'),
-(4, '019', 'MacBook Pro', '154.99'),
-(4, '029', 'IPhone XR', '199.99');
+(1, '999', 'Echo', '199.99'),
+(1, '888', 'Apple Watch', '99.99'),
+(2, '777', 'Xbox One', '299.99'),
+(2, '666', 'Google Home', '199.99');
 
 Create Table Requests(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -80,11 +73,11 @@ ReasonForRejection varchar (100) NULL,
 );
 
 INSERT Requests (UsersId, Description, Justification, DeliveryMode) VALUES
-(1, 'Charger', 'For Work Phone', 'UPS'),
-(2, 'Converter', 'USB converter for computer for work', 'USPS'),
-(3, 'Headphones', 'For remote work', 'FedEx'),
-(4, 'MacBook', 'working from home', 'Pick Up'),
-(5, 'IPhone XR', 'For long distance calls', 'DHL');
+(1, '1st Request', 'For Work', 'UPS'),
+(2, '1st Request', 'For Home', 'UPS'),
+(3, '1st Request', 'For Work', 'Pick Up'),
+(1, '2nd Request', 'Just Because', 'Pick Up'),
+(3, '2nd Request', 'Just Because', 'UPS');
 
 Create Table LineItems(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
@@ -94,8 +87,8 @@ Quantity int NOT NULL DEFAULT 1,
 );
 
 INSERT LineItems (RequestsId, ProductsId) VALUES
-(1, 1),
+(1, 2),
 (2, 4),
-(3, 2),
-(4, 5),
-(5, 6);
+(3, 3),
+(4, 1),
+(5, 2);
