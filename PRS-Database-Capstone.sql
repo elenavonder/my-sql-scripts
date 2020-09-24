@@ -58,7 +58,7 @@ PhotoPath varchar(255) NULL --Graphic Image
 );
 
 INSERT Products (VendorsId, PartNumber, Name, Price) VALUES
-(3, 'BOOK', 'Bookcase', '70,00'),
+(3, 'BOOK', 'Bookcase', '70.00'),
 (1, 'COUCH', 'Love Seat', '2000.00'),
 (3, 'FRIDGE', 'Refrigerator', '300.00'),
 (2, 'BEDDING', 'Pillow Top Queen Mattress', '200.00'),
@@ -81,10 +81,10 @@ ReasonForRejection varchar (100) NULL,
 );
 
 INSERT Requests (UsersId, Description, Justification, DeliveryMode) VALUES
-(1, '', 'Saw In Catelog', 'UPS'),
+(1, '1st Request', 'Saw In Catelog', 'UPS'),
 (2, '1st Request', 'Having Twins', 'UPS'),
 (5, '1st Request', 'Pivot', 'Pick Up'),
-(6, '2nd Request', 'Broken', 'Pick Up');
+(6, '1st Request', 'Broken', 'Pick Up');
 
 Create Table LineItems(
 Id int NOT NULL PRIMARY KEY IDENTITY (1,1),
